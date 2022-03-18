@@ -12,21 +12,20 @@
 #         self.next = next
 
 
-
-
 class Solution:
-    # 迭代法
+    # 递归法,可以画图理解
     def reverseList(self, head: ListNode) -> ListNode:
 
-        cur=head
-        pre=None
-        while cur!=None:
+        def reverse(pre,cur):
+            if not cur:#如果cur为空，退出条件
+                return pre
+
             tmp=cur.next
             cur.next=pre
-            pre=cur
-            cur=tmp
-        return pre
 
+            return reverse(cur,tmp)
+
+        return reverse(None,head)
    
 
 # @lc code=end
