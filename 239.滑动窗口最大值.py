@@ -48,4 +48,6 @@ class Solution:
 所以push时需要将比将要push的value小的删掉
 而pop时，是需要判断nums的左指针是不是恰好到了保存的最大值的位置
 3，最后，每一次的最大值都保存到result中，返回
+
+deque的说明见此：https://blog.csdn.net/qq_28304687/article/details/79088491
 '''
