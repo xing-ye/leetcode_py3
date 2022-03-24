@@ -6,8 +6,8 @@
 
 # @lc code=start
 import heapq
-from unittest import result
-
+#时间复杂度：O(nlogk)
+#空间复杂度：O(n)
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
