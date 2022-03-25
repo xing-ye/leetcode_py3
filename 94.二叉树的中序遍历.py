@@ -11,7 +11,23 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+class Solution:
+    #递归中序
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res=[]
 
+        def traversal(root:TreeNode):
+            if root==None:
+                return 
+            traversal(root.left)
+            res.append(root.val)
+            traversal(root.right)
+        traversal(root)
+        return res
+    
+# @lc code=end
+
+'''
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res=[]
@@ -28,9 +44,4 @@ class Solution:
                 root=root.right
         return res
 
-        
-# @lc code=end
-
-'''
-利用栈
-'''
+'''   

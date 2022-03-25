@@ -12,7 +12,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    #递归
+    #递归后序遍历
     def postorder(self,root: TreeNode,res):
         if root==None:
             return res       
