@@ -13,7 +13,7 @@
 #         self.right = right
 
 class Solution:
-    # 前序遍历函数
+    # 递归前序遍历函数
     def preOrder(self, root: TreeNode, res):
         if root == None:
             return res
