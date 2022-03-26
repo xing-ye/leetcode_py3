@@ -28,7 +28,6 @@ class Solution:
                 root=root.right
         return res
 
-        
 # @lc code=end
 
 '''

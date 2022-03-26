@@ -11,6 +11,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     #递归
     def postorder(self,root: TreeNode,res):
@@ -24,5 +25,7 @@ class Solution:
         res = []
         self.postorder(root, res)
         return res
+
+
 # @lc code=end
 
