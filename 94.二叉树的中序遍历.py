@@ -44,4 +44,12 @@ class Solution:
                 root=root.right
         return res
 
+<<<<<<< HEAD
+# @lc code=end
+
+'''
+利用栈
+'''
+=======
 '''   
+>>>>>>> c7d19d87e35ea7f645aa0853812e950ea06b50dc

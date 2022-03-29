@@ -11,6 +11,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     # 递归前序遍历函数
     def preOrder(self, root: TreeNode, res):
@@ -24,6 +25,8 @@ class Solution:
         res = []
         self.preOrder(root, res)
         return res
+
+# 前序遍历-迭代-LC144_二叉树的前序遍历
 
 # @lc code=end
 

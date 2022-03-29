@@ -27,7 +27,7 @@ class Solution:
                         tmp.append(node.left)
                     if node.right:
                         tmp.append(node.right)
-            queue=tmp
+            queue=tmp#相比层序遍历，每次只存一层的数据
 
         return res
 # @lc code=end

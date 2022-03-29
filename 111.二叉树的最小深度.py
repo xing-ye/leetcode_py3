@@ -19,6 +19,8 @@ class Solution:
         dq,depth=deque([root]),1
         while dq:
             for i in range(len(dq)):
+                #每一次for循环实际上都是在弹出一层，然后加入下一层的过程
+                #所以，这里depth都是一样的，在处理完后加一即可
                 tmp=dq.popleft()
                 if not tmp.left and not tmp.right:
                     return depth
@@ -35,4 +37,6 @@ https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/solution/111er-cha
 deque是一种可以在两边加入和弹出的数据结构：
 
 https://docs.python.org/zh-cn/3/library/collections.html?highlight=deque
+需要注意的是，只有当左右孩子都为空的时候，才说明遍历的最低点了。
+如果其中一个孩子为空则不是最低点
 '''
