@@ -11,40 +11,46 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# 迭代法
 class Solution:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        '''
+        如果把这个当成两个队列去比较会非常的繁琐
+        直接把其当作树的两个左右节点，就会好很多
+        '''
+        if not p and not q: return True
+        if not p or not q: return False
+        que = collections.deque()
+        que.append(p)
+        que.append(q)
+        while que:
+            leftNode = que.popleft()
+            rightNode = que.popleft()
+            if not leftNode and not rightNode: continue 
+            if not leftNode or not rightNode or leftNode.val != rightNode.val: return False 
+            que.append(leftNode.left)
+            que.append(rightNode.left)
+            que.append(leftNode.right)
+            que.append(rightNode.right)
+            #加入顺序实际上就是两两需要比较的的顺序
+        return True
+
+
+# @lc code=end
+
+'''
+class Solution:
+  
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
        #bfs广度优先，需要借助队列了
         if not p and not q:
             return True
         elif not p or  not q:
             return False
-        queueP=[p]
-        queueQ=[q]#先将两个头节点加入
-        while queueP and queueQ:
-            nodeP=queueP.pop(0)
-            nodeQ=queueQ.pop(0)
-            if nodeP.val!=nodeP.val:
-                return False
-            leftP,rightP=nodeP.left,nodeP.right
-            leftQ,rightQ=nodeQ.left,nodeQ.right 
-            if (not leftP) ^ (not leftQ):
-                return False
-            if (not rightP) ^ (not rightQ):
-                return False
-            if leftP:
-                queueP.append(leftP)
-            if leftQ:
-                queueQ.append(leftQ)
-            if rightP:
-                queueP.append(rightP)
-            if rightQ:
-                queueQ.append(rightQ)
-        #循环结束后，只有当两个队列都为空时才会返回true
-        return not queueP and not queueQ
+        elif p.val!=q.val:
+            return False
+        else:
+            return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
 
-# @lc code=end
 '''
-利用深度搜索和广度搜索，只要路径相同的就是相同的树
-https://leetcode-cn.com/problems/same-tree/solution/100-xiang-tong-de-shu-by-edelweisskoko-3iqr/
-'''
-
