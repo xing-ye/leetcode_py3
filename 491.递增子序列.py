@@ -18,7 +18,6 @@ class Solution:
             # Base Case（可忽略）
             if start_index == len(nums):
                 return
-
             # 单层递归逻辑
             # 深度遍历中每一层都会有一个全新的usage_list用于记录本层元素是否重复使用
             usage_list = set()
