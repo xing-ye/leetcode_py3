@@ -7,7 +7,24 @@
 # @lc code=start
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        
+        # 贪心算法
+        res=-float("inf")
+        count=0
+        for i  in range(len(nums)):
+            count+=nums[i]
+            if count>res:
+                res=count
+            if count<=0:
+                count=0
+        return res
+
+# @lc code=end
+
+
+'''
+# 动态规划
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:     
         tmp=nums[0]
         max_=tmp
         for i  in range(1,len(nums)):
@@ -18,9 +35,7 @@ class Solution:
                  max_=max(max_,nums[i],tmp,tmp+nums[i])
                  tmp=nums[i]
         return max_
-# @lc code=end
 
-'''
 参考自：
 https://leetcode-cn.com/problems/maximum-subarray/solution/bao-li-qiu-jie-by-pandawakaka/
 
