@@ -7,15 +7,23 @@
 # @lc code=start
 class Solution:
     def climbStairs(self, n: int) -> int:
-        dp=[0]*(n+1)#这里是n+1是因为还有0
-        dp[0]=dp[1]=1
-        for i in range(2,n+1):
-            dp[i]=dp[i-1]+dp[i-2]
+        # 动态规划
+        fir=1#初始化跳到第一层和第二层的方法
+        sec=2#调到第二层有两种方法
+        tmp=0
+        if n<3:
+            return n
+        for i in range(3,n+1):
+            # dp[i]=dp[i-1]+dp[i-2]
+            # 空间复杂度为O（n）
+            tmp=fir+sec
+            fir=sec
+            sec=tmp
             
-        return dp[-1]
+        return sec
 # @lc code=end
 '''
-dp[n]存储的是跳到n层所有可能的跳数。
-详见：
-https://leetcode-cn.com/problems/climbing-stairs/solution/zhi-xin-hua-shi-pa-lou-ti-zhi-cong-bao-l-lo1t/
+存储的是跳到n层所有可能的跳数。
+动态规划方法:跳到第三层的方法实际上就是跳到第一层和第二层的方法的和，即dp[i]=dp[i-1]+dp[i-2]
+因为每次最多走1步或两步。
 '''
