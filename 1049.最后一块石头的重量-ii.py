@@ -11,7 +11,8 @@ class Solution:
         target=allweight//2
         # 背包最多存一半就可以，尽量装到容量为target的背包所能背的最大重量。
         # 这里不直接设置dp为[0]*(target+1)是因为可能存在比target重的石头
-        dp=[0]*1501
+        # dp=[0]*1501
+        dp=[0]*(target+1)
         # 根据题意，最多3000，一半就是1500，所以背包最大可能的容量就是1500
         for i in range(len(stones)):
             # 对所有石头遍历
